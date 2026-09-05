@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://bfoagm88be41v"]
+
+[ext_resource type="Script" uid="uid://c83sqgpe2kwe" path="res://player.gd" id="1_bvgre"]
+[ext_resource type="Script" uid="uid://cxyyq1x7vpbta" path="res://portal.gd" id="1_e08lw"]
+[ext_resource type="Shader" uid="uid://cxqkjrhauiwry" path="res://portal.gdshader" id="3_e3xe6"]
+[ext_resource type="Texture2D" uid="uid://c11ux0vnn0b3n" path="res://spaceship.png" id="4_f2txt"]
+[ext_resource type="PackedScene" uid="uid://bxfevggvxo634" path="res://assets/background/space_background.tscn" id="5_e3xe6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8imnd"]
+radius = 422.11847
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_e08lw"]
+shader = ExtResource("3_e3xe6")
+shader_parameter/radius = 0.150000007125
+shader_parameter/rim_width = 0.050000002375
+shader_parameter/softness = 0.0050000002375
+shader_parameter/inner_gradient_start = 0.1150000054625
+shader_parameter/inner_gradient_width = 0.2550000121125
+shader_parameter/inner_start_color = Color(0, 0, 0, 1)
+shader_parameter/inner_end_color = Color(0.2668471, 0.0816913, 0.015906973, 1)
+shader_parameter/rim_start_color = Color(0.968538, 0.6349028, 0.122436516, 1)
+shader_parameter/rim_end_color = Color(1, 0.85185194, 0.17774531, 1)
+shader_parameter/rim_gradient_width = 0.050000002375
+shader_parameter/breathing_strength = 0.0
+shader_parameter/displacement_strength = 0.05
+shader_parameter/noise_direction = Vector2(0.8, 1)
+shader_parameter/noise_speed = 0.1
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_efxa6"]
+frequency = 0.0049
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_e3xe6"]
+width = 256
+height = 256
+noise = SubResource("FastNoiseLite_efxa6")
+seamless = true
+seamless_blend_skirt = 0.564
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_e08lw"]
+radius = 48.09366
+
+[node name="Node2D" type="Node2D" unique_id=1170125788]
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1303494167]
+position = Vector2(834, 375)
+script = ExtResource("1_e08lw")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=38723989]
+shape = SubResource("CircleShape2D_8imnd")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D" unique_id=286717898]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_e08lw")
+texture = SubResource("NoiseTexture2D_e3xe6")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=2101180386]
+position = Vector2(327, 373)
+script = ExtResource("1_bvgre")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=729866502]
+shape = SubResource("CircleShape2D_e08lw")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=1094390155]
+scale = Vector2(0.85714287, 0.85714287)
+texture = ExtResource("4_f2txt")
+
+[node name="SpaceBackground" parent="." unique_id=2123839968 instance=ExtResource("5_e3xe6")]
