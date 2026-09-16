@@ -1,0 +1,6 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://bhoy1rls7s2p7"]
+
+[ext_resource type="Shader" uid="uid://befcpc2blbw4l" path="res://assets/portal/portal_particles.gdshader" id="1_sy73f"]
+
+[resource]
+shader = ExtResource("1_sy73f")

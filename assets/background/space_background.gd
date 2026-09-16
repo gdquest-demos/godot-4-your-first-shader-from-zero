@@ -1,13 +1,8 @@
 extends ColorRect
 
-@onready var _camera: Camera2D
+@onready var mat : ShaderMaterial = material
 
-
-func _ready() -> void:
-	await get_tree().root.ready
-	_camera = get_viewport().get_camera_2d()
-	set_process(_camera != null)
-
-
-func _process(_delta: float) -> void:
-	material.set_shader_parameter("view_offset", _camera.global_position * 2.0)
+func _process(_delta):
+	var camera_2d : Camera2D = get_viewport().get_camera_2d()
+	if camera_2d == null: return
+	mat.set_shader_parameter("view_offset", camera_2d.get_screen_center_position())

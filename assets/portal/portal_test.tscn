@@ -1,0 +1,125 @@
+[gd_scene format=3 uid="uid://bp2u1tio71orb"]
+
+[ext_resource type="PackedScene" uid="uid://bxfevggvxo634" path="res://assets/background/space_background.tscn" id="1_a2c6u"]
+[ext_resource type="Script" uid="uid://d1y0herb1jsm6" path="res://assets/portal/portal_test.gd" id="1_ljiwj"]
+[ext_resource type="Material" uid="uid://cwlh5rtsne3u" path="res://assets/portal/portal_mat.tres" id="2_jsav0"]
+[ext_resource type="Material" uid="uid://tkh0a11oe6lm" path="res://assets/portal/portal_2_mat.tres" id="3_7fav2"]
+[ext_resource type="Material" uid="uid://crpv7vsmug6v0" path="res://assets/portal/portal_background_mat.tres" id="3_7ro0l"]
+[ext_resource type="Material" uid="uid://d223hkl7xp5sd" path="res://assets/portal/portal_2_background_mat.tres" id="4_x5flc"]
+[ext_resource type="Material" uid="uid://i4d1kv43j0hg" path="res://assets/portal/portal_particles_process_mat.tres" id="5_ljiwj"]
+[ext_resource type="Material" uid="uid://c752rykjq2jpg" path="res://assets/portal/portal_2_particles_mat.tres" id="8_ljiwj"]
+
+[sub_resource type="Environment" id="Environment_l4b4c"]
+background_mode = 3
+glow_enabled = true
+glow_levels/1 = 0.1
+glow_levels/5 = 0.1
+glow_levels/6 = 0.1
+glow_levels/7 = 0.1
+glow_normalized = true
+glow_bloom = 0.25
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_efxa6"]
+noise_type = 2
+fractal_octaves = 2
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_wlfd1"]
+width = 256
+height = 256
+noise = SubResource("FastNoiseLite_efxa6")
+seamless = true
+seamless_blend_skirt = 0.564
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_7ro0l"]
+noise_type = 2
+fractal_octaves = 2
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ljiwj"]
+width = 256
+height = 256
+noise = SubResource("FastNoiseLite_7ro0l")
+seamless = true
+seamless_blend_skirt = 0.564
+
+[sub_resource type="Gradient" id="Gradient_f8ara"]
+offsets = PackedFloat32Array(0.2, 0.3, 0.9, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.82142854, 1, 1, 1, 0.75, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_0xhv5"]
+gradient = SubResource("Gradient_f8ara")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_wlfd1"]
+noise_type = 2
+fractal_octaves = 2
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_7fav2"]
+width = 256
+height = 256
+noise = SubResource("FastNoiseLite_wlfd1")
+seamless = true
+seamless_blend_skirt = 0.564
+
+[node name="PortalTest" type="Node" unique_id=1545113012]
+script = ExtResource("1_ljiwj")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=72874986]
+layer = -1
+
+[node name="SpaceBackground" parent="CanvasLayer" unique_id=1373856855 instance=ExtResource("1_a2c6u")]
+metadata/_edit_lock_ = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2044095863]
+environment = SubResource("Environment_l4b4c")
+
+[node name="Control" type="Control" parent="." unique_id=959668665]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PortalSprite" type="Sprite2D" parent="Control" unique_id=603165118]
+texture_repeat = 2
+material = ExtResource("2_jsav0")
+position = Vector2(-306, 0)
+texture = SubResource("NoiseTexture2D_wlfd1")
+metadata/_edit_group_ = true
+
+[node name="PortalBackground" type="Sprite2D" parent="Control/PortalSprite" unique_id=1836509899]
+show_behind_parent = true
+texture_repeat = 2
+material = ExtResource("3_7ro0l")
+scale = Vector2(2, 2)
+texture = SubResource("NoiseTexture2D_ljiwj")
+
+[node name="PortalParticles" type="GPUParticles2D" parent="Control/PortalSprite" unique_id=1779243201]
+amount = 32
+texture = SubResource("GradientTexture2D_0xhv5")
+preprocess = 1.0
+process_material = ExtResource("5_ljiwj")
+
+[node name="PortalSprite2" type="Sprite2D" parent="Control" unique_id=1352180399]
+texture_repeat = 2
+material = ExtResource("3_7fav2")
+position = Vector2(270, 0)
+texture = SubResource("NoiseTexture2D_7fav2")
+metadata/_edit_group_ = true
+
+[node name="PortalBackground" type="Sprite2D" parent="Control/PortalSprite2" unique_id=1250962367]
+show_behind_parent = true
+texture_repeat = 2
+material = ExtResource("4_x5flc")
+scale = Vector2(2, 2)
+texture = SubResource("NoiseTexture2D_ljiwj")
+
+[node name="PortalParticles" type="GPUParticles2D" parent="Control/PortalSprite2" unique_id=266092478]
+amount = 32
+texture = SubResource("GradientTexture2D_0xhv5")
+preprocess = 1.0
+process_material = ExtResource("8_ljiwj")

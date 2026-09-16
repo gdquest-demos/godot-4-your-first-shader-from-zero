@@ -1,0 +1,20 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://cwlh5rtsne3u"]
+
+[ext_resource type="Shader" uid="uid://dxf77vnjpd8um" path="res://assets/portal/portal.gdshader" id="1_byjj7"]
+
+[resource]
+shader = ExtResource("1_byjj7")
+shader_parameter/radius = 0.4
+shader_parameter/rim_width = 0.0290000013775
+shader_parameter/softness = 0.01
+shader_parameter/inner_gradient_start = 0.1
+shader_parameter/inner_gradient_width = 0.2
+shader_parameter/inner_start_color = Color(0.05, 0.041475, 0.033499997, 1)
+shader_parameter/inner_end_color = Color(0.29, 0.084583335, 0.04349999, 1)
+shader_parameter/rim_start_color = Color(1, 0.45000005, 0, 1)
+shader_parameter/rim_end_color = Color(1, 0.8833333, 0, 1)
+shader_parameter/rim_gradient_width = 0.0170000008075
+shader_parameter/breathing_strength = 0.010000000475
+shader_parameter/displacement_strength = 0.05
+shader_parameter/noise_direction = Vector2(0.8, 1)
+shader_parameter/noise_speed = 0.250000011875

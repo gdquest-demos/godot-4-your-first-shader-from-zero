@@ -24,4 +24,3 @@ shader_parameter/chance = 0.988
 shader_parameter/base_scale = 0.75
 shader_parameter/star_count = 20.0
 shader_parameter/view_offset = Vector2(0, 0)
-shader_parameter/base_game_resolution = Vector2(1280, 720)

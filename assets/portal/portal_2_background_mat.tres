@@ -1,0 +1,15 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://d223hkl7xp5sd"]
+
+[ext_resource type="Shader" uid="uid://b742xx2fiajhu" path="res://assets/portal/portal_background.gdshader" id="1_voro7"]
+
+[sub_resource type="Gradient" id="Gradient_voro7"]
+colors = PackedColorArray(0.018899981, 0.11056506, 0.63, 0.06666667, 0.32200003, 0.6509001, 0.92, 0.83137256)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_x5flc"]
+gradient = SubResource("Gradient_voro7")
+
+[resource]
+shader = ExtResource("1_voro7")
+shader_parameter/gradient = SubResource("GradientTexture1D_x5flc")
+shader_parameter/portal_radius = 0.5
+shader_parameter/softness = 0.050000002375

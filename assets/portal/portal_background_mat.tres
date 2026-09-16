@@ -1,0 +1,15 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://crpv7vsmug6v0"]
+
+[ext_resource type="Shader" uid="uid://b742xx2fiajhu" path="res://assets/portal/portal_background.gdshader" id="1_cm075"]
+
+[sub_resource type="Gradient" id="Gradient_cm075"]
+colors = PackedColorArray(0.22259979, 0.018899981, 0.63, 0.4392157, 1, 0.13333333, 0, 0.45882353)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_xhwi4"]
+gradient = SubResource("Gradient_cm075")
+
+[resource]
+shader = ExtResource("1_cm075")
+shader_parameter/gradient = SubResource("GradientTexture1D_xhwi4")
+shader_parameter/portal_radius = 0.5
+shader_parameter/softness = 0.050000002375
