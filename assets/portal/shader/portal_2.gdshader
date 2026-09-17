@@ -1,7 +1,7 @@
 shader_type canvas_item;
 
 uniform sampler2D gradient: source_color;
-uniform float portal_radius: hint_range(0.0, 0.5) = 0.4;
+uniform float portal_radius: hint_range(0.0, 0.5, 0.05) = 0.4;
 
 uniform float breathing_strength: hint_range(0.0, 0.1) = 0.03;
 uniform float displacement_strength : hint_range(0.0, 0.2) = 0.05;

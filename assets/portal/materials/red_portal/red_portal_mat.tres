@@ -6,7 +6,7 @@
 [resource]
 shader = ExtResource("1_vfc2s")
 shader_parameter/gradient = ExtResource("2_kcsv6")
-shader_parameter/portal_radius = 0.5
+shader_parameter/portal_radius = 0.45000000670554
 shader_parameter/breathing_strength = 0.03
 shader_parameter/displacement_strength = 0.05
 shader_parameter/noise_speed = 0.2000000095
