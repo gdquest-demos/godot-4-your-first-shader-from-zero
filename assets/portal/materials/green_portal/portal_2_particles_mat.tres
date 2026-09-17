@@ -1,0 +1,25 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://c752rykjq2jpg"]
+
+[ext_resource type="Shader" uid="uid://krmquanp3h41" path="res://assets/portal/shader/portal_particles_process.gdshader" id="1_u7ye3"]
+
+[sub_resource type="Curve" id="Curve_wvkgw"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.2, 1), 0.0, 0.0, 0, 0, Vector2(0.8, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_u7ye3"]
+curve = SubResource("Curve_wvkgw")
+
+[sub_resource type="Curve" id="Curve_trlrn"]
+_limits = [1.0, 4.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.5, 4), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_43jak"]
+curve = SubResource("Curve_trlrn")
+
+[resource]
+shader = ExtResource("1_u7ye3")
+shader_parameter/portal_radius = 200.0
+shader_parameter/color = Color(0.41000003, 0.70500004, 1, 1)
+shader_parameter/alpha_curve = SubResource("CurveTexture_u7ye3")
+shader_parameter/emission_curve = SubResource("CurveTexture_43jak")

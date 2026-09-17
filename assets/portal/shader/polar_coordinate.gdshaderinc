@@ -1,3 +1,5 @@
+// Credits: https://godotshaders.com/snippet/polar-coordinates/
+
 vec2 polar_coordinates(vec2 uv, vec2 center, float zoom, float repeat)
 {
 	vec2 dir = uv - center;

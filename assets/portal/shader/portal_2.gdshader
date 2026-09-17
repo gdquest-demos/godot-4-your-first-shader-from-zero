@@ -3,8 +3,6 @@ shader_type canvas_item;
 uniform sampler2D gradient: source_color;
 uniform float portal_radius: hint_range(0.0, 0.5) = 0.4;
 
-uniform float softness: hint_range(0.0, 0.2) = 0.01;
-
 uniform float breathing_strength: hint_range(0.0, 0.1) = 0.03;
 uniform float displacement_strength : hint_range(0.0, 0.2) = 0.05;
 
@@ -32,18 +30,10 @@ void fragment() {
 		distance(UV, center) + 
 		(noise_displacement + noise_displacement_2 * 0.5) * displacement_strength +
 		oscillation * breathing_strength;
-  
-	float mask_outer = smoothstep(
-		portal_radius, 
-		portal_radius - softness, 
-		distance_from_center
-	);
-
-	COLOR.a = mask_outer;
+ 
 	COLOR.rgba = texture(
 		gradient,
 		vec2((distance_from_center / portal_radius) - 0.1
 		+ smoothstep(0.4, 0.8, noise_displacement_2) * 0.1
 		, 0.0)).rgba;
-	COLOR.rgb += smoothstep(0.6, 0.8, noise_displacement_2) * 0.15;
 }

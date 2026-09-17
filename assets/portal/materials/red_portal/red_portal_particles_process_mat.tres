@@ -1,6 +1,6 @@
-[gd_resource type="ShaderMaterial" format=3 uid="uid://c752rykjq2jpg"]
+[gd_resource type="ShaderMaterial" format=3 uid="uid://6r8hl0rtss2o"]
 
-[ext_resource type="Shader" uid="uid://krmquanp3h41" path="res://assets/portal/portal_particles_process.gdshader" id="1_u7ye3"]
+[ext_resource type="Shader" uid="uid://krmquanp3h41" path="res://assets/portal/shader/portal_particles_process.gdshader" id="1_rrtck"]
 
 [sub_resource type="Curve" id="Curve_wvkgw"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.2, 1), 0.0, 0.0, 0, 0, Vector2(0.8, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -18,8 +18,8 @@ point_count = 3
 curve = SubResource("Curve_trlrn")
 
 [resource]
-shader = ExtResource("1_u7ye3")
+shader = ExtResource("1_rrtck")
 shader_parameter/portal_radius = 200.0
-shader_parameter/color = Color(0.41000003, 0.70500004, 1, 1)
+shader_parameter/color = Color(1, 0.47500002, 0.25, 1)
 shader_parameter/alpha_curve = SubResource("CurveTexture_u7ye3")
 shader_parameter/emission_curve = SubResource("CurveTexture_43jak")

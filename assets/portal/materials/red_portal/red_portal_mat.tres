@@ -1,0 +1,12 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://xfqmhssbp2m4"]
+
+[ext_resource type="Shader" uid="uid://2mps1vjyyqh3" path="res://assets/portal/shader/portal_2.gdshader" id="1_vfc2s"]
+[ext_resource type="Texture2D" uid="uid://cj8112ep1pkm" path="res://assets/portal/materials/red_portal/red_portal_gradient.tres" id="2_kcsv6"]
+
+[resource]
+shader = ExtResource("1_vfc2s")
+shader_parameter/gradient = ExtResource("2_kcsv6")
+shader_parameter/portal_radius = 0.5
+shader_parameter/breathing_strength = 0.03
+shader_parameter/displacement_strength = 0.05
+shader_parameter/noise_speed = 0.2000000095

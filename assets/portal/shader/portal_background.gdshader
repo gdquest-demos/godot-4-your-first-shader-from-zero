@@ -5,7 +5,6 @@ uniform sampler2D gradient: source_color;
 uniform float portal_radius: hint_range(0.0, 0.5) = 0.4;
 uniform float softness: hint_range(0.0, 0.2) = 0.01;
 
-
 #include "polar_coordinate.gdshaderinc"
 
 void fragment() {
@@ -21,8 +20,8 @@ void fragment() {
 		portal_radius - softness, 
 		distance_from_center
 	);
-	vec3 screen_color = texture(screen_sampler, SCREEN_UV + noise_displacement * 0.1 * mask_outer).rgb;
+	float normalized_noise = (noise_displacement - 0.5) * 2.0;
+	vec3 screen_color = texture(screen_sampler, SCREEN_UV + normalized_noise * 0.025 * mask_outer).rgb;
 	vec4 noise_color = texture(gradient, vec2(noise_displacement, 0.0)).rgba;
 	COLOR.rgb = mix(screen_color, noise_color.rgb, noise_color.a * mask_outer);
-	//COLOR.a *= mask_outer;
 }

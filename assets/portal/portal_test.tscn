@@ -2,12 +2,15 @@
 
 [ext_resource type="PackedScene" uid="uid://bxfevggvxo634" path="res://assets/background/space_background.tscn" id="1_a2c6u"]
 [ext_resource type="Script" uid="uid://d1y0herb1jsm6" path="res://assets/portal/portal_test.gd" id="1_ljiwj"]
-[ext_resource type="Material" uid="uid://cwlh5rtsne3u" path="res://assets/portal/portal_mat.tres" id="2_jsav0"]
-[ext_resource type="Material" uid="uid://tkh0a11oe6lm" path="res://assets/portal/portal_2_mat.tres" id="3_7fav2"]
-[ext_resource type="Material" uid="uid://crpv7vsmug6v0" path="res://assets/portal/portal_background_mat.tres" id="3_7ro0l"]
-[ext_resource type="Material" uid="uid://d223hkl7xp5sd" path="res://assets/portal/portal_2_background_mat.tres" id="4_x5flc"]
-[ext_resource type="Material" uid="uid://i4d1kv43j0hg" path="res://assets/portal/portal_particles_process_mat.tres" id="5_ljiwj"]
-[ext_resource type="Material" uid="uid://c752rykjq2jpg" path="res://assets/portal/portal_2_particles_mat.tres" id="8_ljiwj"]
+[ext_resource type="Material" uid="uid://cwlh5rtsne3u" path="res://assets/portal/materials/portal_1/portal_mat.tres" id="2_jsav0"]
+[ext_resource type="Material" uid="uid://tkh0a11oe6lm" path="res://assets/portal/materials/green_portal/portal_2_mat.tres" id="3_7fav2"]
+[ext_resource type="Material" uid="uid://crpv7vsmug6v0" path="res://assets/portal/materials/portal_1/portal_background_mat.tres" id="3_7ro0l"]
+[ext_resource type="Material" uid="uid://d223hkl7xp5sd" path="res://assets/portal/materials/green_portal/portal_2_background_mat.tres" id="4_x5flc"]
+[ext_resource type="Material" uid="uid://i4d1kv43j0hg" path="res://assets/portal/materials/portal_1/portal_particles_process_mat.tres" id="5_ljiwj"]
+[ext_resource type="Material" uid="uid://xfqmhssbp2m4" path="res://assets/portal/materials/red_portal/red_portal_mat.tres" id="6_r3u7d"]
+[ext_resource type="Material" uid="uid://bxxlrixgk5tsk" path="res://assets/portal/materials/red_portal/red_portal_background_mat.tres" id="7_74vi4"]
+[ext_resource type="Material" uid="uid://c752rykjq2jpg" path="res://assets/portal/materials/green_portal/portal_2_particles_mat.tres" id="8_ljiwj"]
+[ext_resource type="Material" uid="uid://6r8hl0rtss2o" path="res://assets/portal/materials/red_portal/red_portal_particles_process_mat.tres" id="8_r3u7d"]
 
 [sub_resource type="Environment" id="Environment_l4b4c"]
 background_mode = 3
@@ -106,7 +109,7 @@ process_material = ExtResource("5_ljiwj")
 
 [node name="PortalSprite2" type="Sprite2D" parent="Control" unique_id=1352180399]
 texture_repeat = 2
-material = ExtResource("3_7fav2")
+material = ExtResource("6_r3u7d")
 position = Vector2(270, 0)
 texture = SubResource("NoiseTexture2D_7fav2")
 metadata/_edit_group_ = true
@@ -114,11 +117,31 @@ metadata/_edit_group_ = true
 [node name="PortalBackground" type="Sprite2D" parent="Control/PortalSprite2" unique_id=1250962367]
 show_behind_parent = true
 texture_repeat = 2
-material = ExtResource("4_x5flc")
+material = ExtResource("7_74vi4")
 scale = Vector2(2, 2)
 texture = SubResource("NoiseTexture2D_ljiwj")
 
 [node name="PortalParticles" type="GPUParticles2D" parent="Control/PortalSprite2" unique_id=266092478]
+amount = 32
+texture = SubResource("GradientTexture2D_0xhv5")
+preprocess = 1.0
+process_material = ExtResource("8_r3u7d")
+
+[node name="PortalSprite3" type="Sprite2D" parent="Control" unique_id=464756498]
+texture_repeat = 2
+material = ExtResource("3_7fav2")
+position = Vector2(903, 0)
+texture = SubResource("NoiseTexture2D_7fav2")
+metadata/_edit_group_ = true
+
+[node name="PortalBackground" type="Sprite2D" parent="Control/PortalSprite3" unique_id=2102840389]
+show_behind_parent = true
+texture_repeat = 2
+material = ExtResource("4_x5flc")
+scale = Vector2(2, 2)
+texture = SubResource("NoiseTexture2D_ljiwj")
+
+[node name="PortalParticles" type="GPUParticles2D" parent="Control/PortalSprite3" unique_id=1485453314]
 amount = 32
 texture = SubResource("GradientTexture2D_0xhv5")
 preprocess = 1.0

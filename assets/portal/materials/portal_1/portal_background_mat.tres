@@ -1,6 +1,6 @@
 [gd_resource type="ShaderMaterial" format=3 uid="uid://crpv7vsmug6v0"]
 
-[ext_resource type="Shader" uid="uid://b742xx2fiajhu" path="res://assets/portal/portal_background.gdshader" id="1_cm075"]
+[ext_resource type="Shader" uid="uid://b742xx2fiajhu" path="res://assets/portal/shader/portal_background.gdshader" id="1_cm075"]
 
 [sub_resource type="Gradient" id="Gradient_cm075"]
 colors = PackedColorArray(0.22259979, 0.018899981, 0.63, 0.4392157, 1, 0.13333333, 0, 0.45882353)
