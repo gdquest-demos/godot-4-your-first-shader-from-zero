@@ -1,6 +1,6 @@
 [gd_resource type="ShaderMaterial" format=3 uid="uid://d223hkl7xp5sd"]
 
-[ext_resource type="Shader" uid="uid://b742xx2fiajhu" path="res://assets/portal/shader/portal_background.gdshader" id="1_voro7"]
+[ext_resource type="Shader" uid="uid://b742xx2fiajhu" path="res://refined_artist_version/shader/portal_refined_background.gdshader" id="1_voro7"]
 
 [sub_resource type="Gradient" id="Gradient_voro7"]
 colors = PackedColorArray(0.018899981, 0.11056506, 0.63, 0.06666667, 0.32200003, 0.6509001, 0.92, 0.83137256)

@@ -1,3 +1,9 @@
+// This shader is similar to the portal shader, but with some transparency, and
+// it also samples from pixels rendered to the screen to deform the space
+// background.
+//
+// See the screen_sampler uniform and the screen_color variables to learn how to
+// sample from the screen texture.
 shader_type canvas_item;
 
 uniform sampler2D screen_sampler: hint_screen_texture;
@@ -16,8 +22,8 @@ void fragment() {
 	).r;
 	float distance_from_center = distance(UV, center) + noise_displacement * 0.2;
 	float mask_outer = smoothstep(
-		portal_radius, 
-		portal_radius - softness, 
+		portal_radius,
+		portal_radius - softness,
 		distance_from_center
 	);
 	float normalized_noise = (noise_displacement - 0.5) * 2.0;

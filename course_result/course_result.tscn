@@ -1,16 +1,16 @@
 [gd_scene format=3 uid="uid://bfoagm88be41v"]
 
-[ext_resource type="Script" uid="uid://c83sqgpe2kwe" path="res://player.gd" id="1_bvgre"]
-[ext_resource type="Script" uid="uid://cxyyq1x7vpbta" path="res://portal.gd" id="1_e08lw"]
-[ext_resource type="Shader" uid="uid://cxqkjrhauiwry" path="res://portal.gdshader" id="3_e3xe6"]
-[ext_resource type="Texture2D" uid="uid://c11ux0vnn0b3n" path="res://spaceship.png" id="4_f2txt"]
-[ext_resource type="PackedScene" uid="uid://bxfevggvxo634" path="res://assets/background/space_background.tscn" id="5_e3xe6"]
+[ext_resource type="PackedScene" uid="uid://bxfevggvxo634" path="res://assets/background/space_background.tscn" id="1_134wa"]
+[ext_resource type="Script" uid="uid://cxyyq1x7vpbta" path="res://course_result/portal.gd" id="2_h6fhk"]
+[ext_resource type="Shader" uid="uid://cxqkjrhauiwry" path="res://course_result/portal.gdshader" id="3_o3ox5"]
+[ext_resource type="Script" uid="uid://c83sqgpe2kwe" path="res://course_result/player.gd" id="4_5q4ek"]
+[ext_resource type="Texture2D" uid="uid://c11ux0vnn0b3n" path="res://spaceship.png" id="5_v5dg6"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8imnd"]
 radius = 422.11847
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_e08lw"]
-shader = ExtResource("3_e3xe6")
+shader = ExtResource("3_o3ox5")
 shader_parameter/radius = 0.150000007125
 shader_parameter/rim_width = 0.050000002375
 shader_parameter/softness = 0.0050000002375
@@ -41,9 +41,15 @@ radius = 48.09366
 
 [node name="Node2D" type="Node2D" unique_id=1170125788]
 
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1277374977]
+layer = -1
+
+[node name="SpaceBackground" parent="CanvasLayer" unique_id=1373856855 instance=ExtResource("1_134wa")]
+metadata/_edit_lock_ = true
+
 [node name="Area2D" type="Area2D" parent="." unique_id=1303494167]
 position = Vector2(834, 375)
-script = ExtResource("1_e08lw")
+script = ExtResource("2_h6fhk")
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=38723989]
@@ -56,7 +62,7 @@ texture = SubResource("NoiseTexture2D_e3xe6")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=2101180386]
 position = Vector2(327, 373)
-script = ExtResource("1_bvgre")
+script = ExtResource("4_5q4ek")
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=729866502]
@@ -64,6 +70,6 @@ shape = SubResource("CircleShape2D_e08lw")
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=1094390155]
 scale = Vector2(0.85714287, 0.85714287)
-texture = ExtResource("4_f2txt")
+texture = ExtResource("5_v5dg6")
 
-[node name="SpaceBackground" parent="." unique_id=2123839968 instance=ExtResource("5_e3xe6")]
+[node name="SpaceBackground" parent="." unique_id=2123839968 instance=ExtResource("1_134wa")]

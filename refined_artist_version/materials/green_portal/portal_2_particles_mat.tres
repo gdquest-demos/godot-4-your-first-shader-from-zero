@@ -1,6 +1,6 @@
 [gd_resource type="ShaderMaterial" format=3 uid="uid://c752rykjq2jpg"]
 
-[ext_resource type="Shader" uid="uid://krmquanp3h41" path="res://assets/portal/shader/portal_particles_process.gdshader" id="1_u7ye3"]
+[ext_resource type="Shader" uid="uid://krmquanp3h41" path="res://refined_artist_version/shader/portal_particles_process.gdshader" id="1_u7ye3"]
 
 [sub_resource type="Curve" id="Curve_wvkgw"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.2, 1), 0.0, 0.0, 0, 0, Vector2(0.8, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]

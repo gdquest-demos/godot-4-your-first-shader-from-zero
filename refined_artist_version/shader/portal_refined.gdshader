@@ -1,3 +1,10 @@
+// This is the shader of the central part of the portal.
+//
+// It uses one important technique that's different from the reference course:
+// polar coordinates. Concretly, the shader converts the UV coordinates into
+// a radius and angle, allowing us to create radial patterns and animate them.
+//
+// See the file polar_coordinate.gdshaderinc for the polar_coordinates function.
 shader_type canvas_item;
 
 uniform sampler2D gradient: source_color;
@@ -26,11 +33,11 @@ void fragment() {
 
 	float oscillation = sin(TIME);
 
-	float distance_from_center = 
-		distance(UV, center) + 
+	float distance_from_center =
+		distance(UV, center) +
 		(noise_displacement + noise_displacement_2 * 0.5) * displacement_strength +
 		oscillation * breathing_strength;
- 
+
 	COLOR.rgba = texture(
 		gradient,
 		vec2((distance_from_center / portal_radius) - 0.1
